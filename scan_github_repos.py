@@ -211,8 +211,8 @@ def get_data():
         data.append([
             repo.name,
             repo.stargazers_count,
-            repo.get_views_traffic(per='week')["count"],
-            repo.get_clones_traffic(per='week')["count"],
+            repo.get_views_traffic(per='week')["uniques"],
+            repo.get_clones_traffic(per='week')["uniques"],
             repo.watchers_count,
         ])
 
