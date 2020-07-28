@@ -14,6 +14,8 @@ def reset():
 class Colours():
     error = fg(9)
 
+    title_colour = fg(1)
+
     highlight_1 = bg(232)
     highlight_2 = bg(234)
 
@@ -193,6 +195,14 @@ class Table():
 #endregion
 
 #region login
+title = fg(Colours.title_colour) + """  _____ _ _   _           _        _____                                 
+ / ____(_) | | |         | |      / ____|                                
+| |  __ _| |_| |__  _   _| |__   | (___   ___ __ _ _ __  _ __   ___ _ __ 
+| | |_ | | __| '_ \| | | | '_ \   \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
+| |__| | | |_| | | | |_| | |_) |  ____) | (_| (_| | | | | | | |  __/ |   
+ \_____|_|\__|_| |_|\__,_|_.__/  |_____/ \___\__,_|_| |_|_| |_|\___|_|""" + reset()
+
+print(title)
 user = 'hamolicious' ; print(f'Username: {user}')
 password = getpass(prompt='Password: ')
 git_hub = Github(user, password)
@@ -225,14 +235,7 @@ table.update()
 #region print info
 system('color')
 string = f"""
-{fg(1)}
-  _____ _ _   _           _        _____                                 
- / ____(_) | | |         | |      / ____|                                
-| |  __ _| |_| |__  _   _| |__   | (___   ___ __ _ _ __  _ __   ___ _ __ 
-| | |_ | | __| '_ \| | | | '_ \   \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
-| |__| | | |_| | | | |_| | |_) |  ____) | (_| (_| | | | | | | |  __/ |   
- \_____|_|\__|_| |_|\__,_|_.__/  |_____/ \___\__,_|_| |_|_| |_|\___|_|   
-{reset()}
+{title}
 
 Total Repos: {len(repos)}
 """
