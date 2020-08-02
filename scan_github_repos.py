@@ -14,7 +14,7 @@ def reset():
 class Colours():
     error = fg(9)
 
-    title_colour = fg(1)
+    title_colour = 1
 
     highlight_1 = bg(232)
     highlight_2 = bg(234)
@@ -216,7 +216,7 @@ repos.sort(key=lambda elem: elem.name)
 #endregion
 
 def get_data():
-    data = [['Repository Name', 'Stars', 'Views', 'Clones', 'Watchers']]
+    data = [['Repository Name', 'Stars', 'Views', 'Clones', 'Watchers', 'Forks']]
     for repo in repos:
         data.append([
             repo.name,
@@ -224,6 +224,7 @@ def get_data():
             repo.get_views_traffic(per='week')["uniques"],
             repo.get_clones_traffic(per='week')["uniques"],
             repo.watchers_count,
+            repo.forks_count,
         ])
 
     return data
