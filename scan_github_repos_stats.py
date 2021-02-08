@@ -1,5 +1,4 @@
 from github import Github ; import git
-from getpass import getpass
 from time import time
 from os import system ; clear = lambda : system('cls') ; clear()
 
@@ -203,9 +202,10 @@ title = fg(Colours.title_colour) + """   _____ _ _   _           _        _____ 
   \_____|_|\__|_| |_|\__,_|_.__/  |_____/ \__\__,_|\__|___/ |_____/ \___\__,_|_| |_|_| |_|\___|_|   """ + reset()
 
 print(title)
-user = 'hamolicious' ; print(f'Username: {user}')
-password = getpass(prompt='Password: ')
-git_hub = Github(user, password)
+
+with open('token.key', 'r') as file:
+    key = file.read()
+git_hub = Github(key)
 #endregion
 
 start_time = time()

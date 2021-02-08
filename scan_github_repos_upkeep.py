@@ -205,9 +205,9 @@ title = fg(Colours.title_colour) + """   _____ _ _   _           _       _    _ 
                                          |_|                 |_|                                             """ + reset()
 
 print(title)
-user = 'hamolicious' ; print(f'Username: {user}')
-password = getpass(prompt='Password: ')
-git_hub = Github(user, password)
+with open('token.key', 'r') as file:
+    key = file.read()
+git_hub = Github(key)
 #endregion
 
 start_time = time()
