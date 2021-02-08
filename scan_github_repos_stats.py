@@ -202,7 +202,7 @@ title = fg(Colours.title_colour) + """   _____ _ _   _           _        _____ 
   \_____|_|\__|_| |_|\__,_|_.__/  |_____/ \__\__,_|\__|___/ |_____/ \___\__,_|_| |_|_| |_|\___|_|   """ + reset()
 
 print(title)
-
+user = 'hamolicious'
 with open('token.key', 'r') as file:
     key = file.read()
 git_hub = Github(key)
@@ -221,8 +221,8 @@ def get_stats_data():
         data.append([
             repo.name,
             repo.stargazers_count,
-            repo.get_views_traffic(per='week')["uniques"],
-            repo.get_clones_traffic(per='week')["uniques"],
+            repo.get_views_traffic(per='week').get('count'),
+            repo.get_clones_traffic(per='week').get('count'),
             repo.watchers_count,
             repo.forks_count,
         ])
